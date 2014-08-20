@@ -1,0 +1,29 @@
+<div class="center hero-unit">
+  
+  <h1>
+    <%= link_to "Add Project", new_project_path %>
+  </h1>
+  <br>
+  <br>
+ 
+  <h2><%= "Show Project" %></h2>
+  
+
+  <% @project.each do |p| %>
+    <h2>
+    <%=link_to p.name, project_path(p.id) %>
+    </h2>
+  <% end %>
+
+
+  <h2><%= "Edit Project" %></h2>
+
+
+  <% @project.each do |p| %>
+    <h2>
+    <%=link_to p.name, edit_project_path(p.id) %>
+    </h2>
+  <% end %>
+
+
+</div>

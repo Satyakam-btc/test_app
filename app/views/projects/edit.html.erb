@@ -1,0 +1,48 @@
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+<% provide(:title, 'Edit project details') %>
+<div>
+  <div class = "row">
+    <div class="span6 offset3">
+      <%= form_for(@project) do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :code %>
+        <%= f.text_field :code%>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+
+        <%= f.label :billtype %>
+        <%= f.select "billtype", "<option>tnm</option><option>fixed</option>".html_safe, multiple: true%>
+
+        <%= f.label :startdate %>
+        <%= f.date_field :startdate%>
+
+        <%= f.label :deadline %>
+        <%= f.date_field :deadline%>
+
+        <%= f.label :enddate %>
+        <%= f.date_field :enddate%>
+
+        <%= f.label :giturl %>
+        <%= f.text_field :giturl%>
+
+        <%= f.label :status %>
+        <%= f.select "status", "<option>POC</option><option>Kick off</option><option>Completed</option>".html_safe, multiple: true%>
+
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+        
+
+      <% end %>
+      <%= button_to "Delete", project_path(@project),method: :delete ,class: "btn btn-large btn-primary"%>
+    </div>
+  </div>
+</div>

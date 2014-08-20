@@ -1,9 +1,9 @@
 <div class="center hero-unit">
   <div class="row">
- 
-      <h2>
+<br><br>
+      <h1>
         <%= link_to "Add Project", new_project_path %>
-      </h2>
+      </h1>
       
       <table class="table table-hover">
            <thead>
@@ -33,7 +33,7 @@
             <td><%=p.enddate%></td>
             <td><%=p.giturl%></td>
             <td><%=p.status%></td>
-            <td><%=link_to "V", project_path(p.id) %> <%=link_to "E", edit_project_path(p.id) %> <%=link_to "D",project_path(p.id) ,method: :delete %>
+            <td><%=link_to "View", project_path(p.id) %> <%=link_to "Edit", edit_project_path(p.id) %> <%=link_to "Del",project_path(p.id) ,method: :delete %>
           </tr>
         <% end %>
     </table>

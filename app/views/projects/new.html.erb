@@ -23,7 +23,7 @@
         <%= f.text_field :name %>
 
         <%= f.label :code %>
-        <%= f.text_field :code %>
+        <%= f.text_field :code%>
 
         <%= f.label :description %>
         <%= f.text_field :description %>
@@ -32,21 +32,22 @@
         <%= f.select "billtype", "<option>tnm</option><option>fixed</option>".html_safe, multiple: true%>
 
         <%= f.label :startdate %>
-        <%= f.date_field :startdate %>
+        <%= f.date_field :startdate%>
 
         <%= f.label :deadline %>
-        <%= f.date_field :deadline %>
+        <%= f.date_field :deadline%>
 
         <%= f.label :enddate %>
-        <%= f.date_field :enddate %>
+        <%= f.date_field :enddate%>
 
         <%= f.label :giturl %>
-        <%= f.text_field :giturl %>
+        <%= f.text_field :giturl%>
 
         <%= f.label :status %>
         <%= f.select "status", "<option>POC</option><option>Kick off</option><option>Completed</option>".html_safe, multiple: true%>
 
-
+        <%= f.label :client%>
+        <%= collection_select(:project,:client_id,Client.all,:id,:name) %>
        
         <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
       <% end %>

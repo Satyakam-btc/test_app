@@ -1,0 +1,26 @@
+<div class="center hero-unit">
+  <div class="row">
+<br><br>
+      <h1>
+        <%= link_to "Add Client", new_client_path %>
+      </h1>
+      
+      <table class="table table-hover">
+           <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+        <% @clients.each do |c| %>
+          <tr>
+            <td><%=c.id%></td>
+            <td><%=c.name%></td>
+            <td><%=c.country%></td>
+            <td><%=link_to "View", client_path(c.id) %> <%=link_to "Edit", edit_client_path(c.id) %> <%=link_to "Del",client_path(c.id) ,method: :delete %>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

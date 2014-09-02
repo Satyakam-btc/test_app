@@ -2,11 +2,13 @@ class ProjectsController < ApplicationController
 
 
   def new
+    @c = Client.all
     @project = Project.new
   end
 
   def create
     @project = Project.create(project_params)
+    
     if @project.save
       redirect_to root_path
     else
@@ -22,6 +24,9 @@ class ProjectsController < ApplicationController
 
   def index
     @project = Project.all
+    @proj = @project.order(:deadline)
+    @projs = @proj.paginate(page: params[:page], :per_page => 2)
+
   end
 
   def show
@@ -39,7 +44,9 @@ class ProjectsController < ApplicationController
   end
 
 private
-def project_params
-      params.require(:project).permit(:name, :code, :description, :billtype, :startdate, :deadline, :enddate, :giturl, :status, :confirmation)
-    end
+  def project_params
+    params.require(:project).permit(:name, :code, :description, :billtype, :startdate, :deadline, :enddate, :giturl, :status, :confirmation, :client_id)
+  end
+
+
 end

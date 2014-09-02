@@ -10,6 +10,7 @@ class CreateProjectDetails < ActiveRecord::Migration
       t.date    :enddate
       t.string  :giturl
       t.string  :status
+      t.references :client, index: true
     end
   end
 end

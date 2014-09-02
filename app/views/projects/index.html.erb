@@ -1,9 +1,10 @@
 <div class="center hero-unit">
   <div class="row">
 <br><br>
-      <h1>
-        <%= link_to "Add Project", new_project_path %>
-      </h1>
+      <h2>
+        <%= link_to "Add Project", new_project_path %><br>
+        <%= link_to "Add Client", new_client_path %>
+      </h2>
       
       <table class="table table-hover">
            <thead>
@@ -18,10 +19,11 @@
                 <th>End Date</th>
                 <th>Giturl</th>
                 <th>Status</th>
+                <th>Client</th>
                 <th>Actions</th>
               </tr>
             </thead>
-        <% @project.each do |p| %>
+        <% @projs.each do |p| %>
           <tr>
             <td><%=p.id%></td>
             <td><%=p.name%></td>
@@ -33,10 +35,11 @@
             <td><%=p.enddate%></td>
             <td><%=p.giturl%></td>
             <td><%=p.status%></td>
+            <td><%=p.client.name%>
             <td><%=link_to "View", project_path(p.id) %> <%=link_to "Edit", edit_project_path(p.id) %> <%=link_to "Del",project_path(p.id) ,method: :delete %>
           </tr>
         <% end %>
     </table>
-    
+      <%= will_paginate @projs %>
   </div>
 </div>

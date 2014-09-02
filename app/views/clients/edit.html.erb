@@ -1,0 +1,27 @@
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+<% provide(:title, 'Edit Client details') %>
+<div>
+  <div class = "row">
+    <div class="span6 offset3">
+      <%= form_for(@project) do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :country %>
+        <%= f.select "country", "<option>india</option><option>uk</option><option>usa</option><option>aus</option>".html_safe, multiple: true%>
+
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+        
+
+      <% end %>
+      
+    </div>
+  </div>
+</div>
